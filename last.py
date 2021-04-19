@@ -1,13 +1,11 @@
 """  Leo Quezada
      Program #4: The Phonebook program
-     COSC 1306
-     Spring 2021
 """
 
-def printMenu(): #DONE
+def printMenu(): #DONE, print's menu
     print("1. Print Contact List\n2. Add New Contact\n3. Delete Contact\n4. Modify Contact\n5. Exit")
 
-def readFromFile(filename): #DONE
+def readFromFile(filename): #DONE, reads file
     file = open(filename, "r")
     contacts = file.read()
     people = contacts.split("\n")
@@ -17,12 +15,12 @@ def readFromFile(filename): #DONE
         newArray.append(people[i].split())
     return newArray
 
-def printContactList(contactList): #DONE
+def printContactList(contactList): #DONE, prints contact list
     for i in range(len(contactList)):
         print("Contact #", i+1)
         print("First name:", contactList[i][0] + ", Last name:", contactList[i][1] + ", Phone number:", contactList[i][2]+ ", Birthday:", contactList[i][3])
 
-def addContact(newArray): #DONE
+def addContact(newArray): #DONE, this function receives as a parameter the list of contacts, adds contact, and does not return any value. 
     first = input("Enter the First Name: ")
     last = input("Enter the Last Name: ")
     number = input("Enter the Phone Number: ")
@@ -30,7 +28,7 @@ def addContact(newArray): #DONE
     newPerson = [first, last, number, birthday]
     newArray.append(newPerson)
 
-def deleteContact(newArray): #DONE
+def deleteContact(newArray): #DONE, this function receives as a parameter the list of contacts, deletes contact, and does not return any value. 
     contactIndex = int(input("Select the contact to be deleted: "))
     if contactIndex < 1 or contactIndex > 4:
         print("Incorrect contact number")
@@ -38,7 +36,7 @@ def deleteContact(newArray): #DONE
         newArray.remove(newArray[contactIndex-1])
         print("Contact", contactIndex, "deleted")
 
-def modifyContact(newArray): #this function receives as a parameter the list of contacts and does not return any value. 
+def modifyContact(newArray): #DONE, this function receives as a parameter the list of contacts, modifies contact, and does not return any value. 
     person = int(input("Select the contact to be changed: "))
     first = input("Enter the First Name: ")
     last = input("Enter the Last Name: ")
